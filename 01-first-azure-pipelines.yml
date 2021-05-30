@@ -15,8 +15,12 @@ variables:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- script: |
+    export PREVIOUS_BUILD=$(echo `expr $COUNTER - 4`)
+    echo "##vso[task.setvariable variable=PREVIOUS_BUILD]$PREVIOUS_BUILD"
+    echo "Current build: $COUNTER Previous build: $PREVIOUS_BUILD"
+  displayName: 'Save build number - 4 as variable'
 - bash: echo $(COUNTER)
-
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
