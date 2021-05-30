@@ -9,9 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  COUNTER: $[counter]
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- bash: echo $(COUNTER)
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
