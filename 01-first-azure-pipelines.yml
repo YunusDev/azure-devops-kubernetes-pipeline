@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  COUNTER: $[counter]
+  COUNTER: $[counter(1, 1)]
 
 steps:
 - script: echo Hello, world!
